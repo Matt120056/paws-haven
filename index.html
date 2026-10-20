@@ -1,70 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Northern Paws Rescue - Adoption Day</title>
+  <meta charset="UTF-8">
+  <title>Northern Paws Rescue — Adoption Day</title>
 </head>
-
 <body>
+  <header>
+    <img src="images/logo.png" alt="Northern Paws Rescue logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#pets">Meet the pets</a>
+      <a href="#apply">Apply</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
 
-    <header>
-        <ig src="images/logo.png" alt="TODO">
-        <nav>
-            <h1></h1>
-            <a href="index.html">Home</a>
-            <a href="#pets">Meet The Pets!</a>
-            <a href="#apply">Apply</a>
-            <a href="#faq.html">FAQ</a>
-        </nav>
-    </header>
+  <main>
+    <section id="welcome">
+      <h1>Adoption Day is this Saturday!</h1>
+      <p>Northern Paws Rescue opens its doors at <strong>10 a.m. this Saturday</strong>. Four animals are waiting for a home, and <em>every one</em> of them is ready to meet you.</p>
+      <a href="#pets">Meet the pets</a>
+    </section>
 
-    <main>
+    <section id="pets">
+      <h2>Meet the pets</h2>
+      <form action="index.html#pets" method="get">
+        <label for="pet-search">Search by name</label>
+        <input type="text" id="pet-search" name="q">
+        <button type="submit">Search</button>
+      </form>
+      <img src="images/paw-divider.png" alt="">
+      <ul>
+        <li>
+          <article>
+            <h3>Biscuit</h3>
+            <img src="images/biscuit.png" alt="Illustration of a golden-brown dog sitting beside a red ball">
+            <p>Dog · 3 years · Loves fetch, belly rubs, and anyone holding a snack.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Mochi</h3>
+            <img src="images/mochi.png" alt="Illustration of a white cat with orange ears and tail and green eyes">
+            <p>Cat · 2 years · Professional napper with strong opinions about sunbeams.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Clover</h3>
+            <img src="images/clover.png" alt="Illustration of a light-purple rabbit with long pink ears beside a green clover">
+            <p>Rabbit · 1 year · Does a happy mid-air flip (called a binky) whenever someone new walks in.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Pepper</h3>
+            <img src="images/pepper.png" alt="Illustration of a bright-green parrot perched on a branch">
+            <p>Parrot · 6 years · Knows eleven words. Three of them are "treat."</p>
+          </article>
+        </li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>Find Your Best Bud</h2>
-            <p>Give a loving pet a forever home.</p>
-            <a href="#pets">Meet Our Pets</a>
-        </section>
+    <aside>
+      <h2>Pet of the Week</h2>
+      <img src="images/biscuit.png" alt="Biscuit, a friendly golden-brown dog, sitting beside his red ball">
+      <p>Biscuit has now waited <strong>47 days</strong> for his forever family. He is house-trained, great with kids, and still believes every walk is the best walk of his life.</p>
+    </aside>
 
-        <section>
-            <h2>Available Pets</h2>
+    <section id="apply">
+      <h2>Adoption application</h2>
+      <p>Tell us a little about yourself and the pet you have your eye on. A volunteer will be in touch within three days.</p>
+      <form action="/applications" method="post">
+        <fieldset>
+          <legend>About you</legend>
+          <p>
+            <label for="full-name">Full name</label>
+            <input type="text" id="full-name" name="fullName" required>
+          </p>
+          <p>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required>
+          </p>
+          <p>
+            <label for="age">Your age (adopters must be 18 or older)</label>
+            <input type="number" id="age" name="age" min="18" max="120" required>
+          </p>
+          <p>
+            <label for="password">Choose a password for your adopter account</label>
+            <input type="password" id="password" name="password" required>
+          </p>
+        </fieldset>
 
-            <form>
-                <input type="text" placeholder="Search pets">
-                <button type="submit">Search</button>
-            </form>
+        <fieldset>
+          <legend>Your new friend</legend>
+          <p>
+            <label for="pet-choice">Which pet are you interested in?</label>
+            <select id="pet-choice" name="pet" required>
+              <option value="">-- Choose a pet --</option>
+              <option value="biscuit">Biscuit (dog)</option>
+              <option value="mochi">Mochi (cat)</option>
+              <option value="clover">Clover (rabbit)</option>
+              <option value="pepper">Pepper (parrot)</option>
+              <option value="undecided">I am not sure yet</option>
+            </select>
+          </p>
+          <p>
+            <label for="visit-date">Preferred home-visit date</label>
+            <input type="date" id="visit-date" name="visitDate">
+          </p>
+        </fieldset>
 
-            <hr>
+        <fieldset>
+          <legend>Where would your pet live?</legend>
+          <p>
+            <input type="radio" id="home-house" name="homeType" value="house" required>
+            <label for="home-house">House</label>
+          </p>
+          <p>
+            <input type="radio" id="home-apartment" name="homeType" value="apartment">
+            <label for="home-apartment">Apartment or condo</label>
+          </p>
+          <p>
+            <input type="radio" id="home-other" name="homeType" value="other">
+            <label for="home-other">Something else</label>
+          </p>
+        </fieldset>
 
-            <article>
-                <h3>Rishabh</h3>
-                <p>Friendly dog looking for a home.</p>
-            </article>
+        <fieldset>
+          <legend>Your household (check all that apply)</legend>
+          <p>
+            <input type="checkbox" id="has-yard" name="hasYard" value="yes">
+            <label for="has-yard">I have a fenced yard</label>
+          </p>
+          <p>
+            <input type="checkbox" id="has-pets" name="hasOtherPets" value="yes">
+            <label for="has-pets">I already have other pets</label>
+          </p>
+          <p>
+            <input type="checkbox" id="has-kids" name="hasYoungKids" value="yes">
+            <label for="has-kids">I have children under 12</label>
+          </p>
+        </fieldset>
 
-            <article>
-                <h3>Matt</h3>
-                <p>Playful cat looking for a home.</p>
-            </article>
-        </section>
+        <p>
+          <label for="reason">Why would you be a great match?</label>
+          <textarea id="reason" name="reason" rows="5" cols="40" placeholder="e.g., I work from home and love long walks"></textarea>
+        </p>
+        <p>
+          <input type="checkbox" id="agree" name="agreeToVisit" value="yes" required>
+          <label for="agree">I agree to a home visit before the adoption is finalized</label>
+        </p>
+        <button type="submit">Send application</button>
+      </form>
+    </section>
+  </main>
 
-        <aside>
-            <h2>Pet of the Week</h2>
-        </aside>
-
-        <section>
-            <h2>Adoption Application</h2>
-            <form>
-                <input type="text" placeholder="Your name">
-                <input type="email" placeholder="Your email">
-                <button type="submit">Apply</button>
-            </form>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Northern Paws Rescue, Sudbury, Ontario. Looking for local services? Visit the <a href="https://www.greatersudbury.ca/">City of Greater Sudbury</a> website.</p>
-      </footer>
-
+  <footer>
+    <p>&copy; 2026 Northern Paws Rescue, Sudbury, Ontario. Looking for local services? Visit the <a href="https://www.greatersudbury.ca/">City of Greater Sudbury</a> website.</p>
+  </footer>
 </body>
 </html>
