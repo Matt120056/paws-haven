@@ -1,0 +1,12 @@
+
+/* Operation Adoption Day - Part 2
+   Main stylesheet
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+}
