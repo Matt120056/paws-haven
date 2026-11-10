@@ -1,7 +1,8 @@
+
 /* Northern Paws Rescue — volunteers.css */
 
 body {
-  margin: 0
+  margin: 0;
   background-color: #f5f5f5;
   color: #222;
   line-height: 1.6;
@@ -9,10 +10,11 @@ body {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  backgroud-color: #fff;
+  background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
 
@@ -20,8 +22,14 @@ header img {
   width: 4rem;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 nav a {
-  margin-left: 1rem;
+  margin-left: 0;
   color: #222;
 }
 
@@ -47,7 +55,7 @@ main {
 }
 
 #why p {
-  color: #aaa;
+  color: #555;
 }
 
 #signup {
@@ -64,13 +72,8 @@ footer {
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .columns {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   }
-}
-
-/* quick test I forgot to delete */
-nav a {
-  color: #c0392b;
 }
