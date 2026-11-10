@@ -86,3 +86,9 @@ footer a {
   button:hover {
     background-color: #1f3a6b;
   }
+
+
+.active {
+    color: #2e5395;
+    font-weight: bold;
+}
