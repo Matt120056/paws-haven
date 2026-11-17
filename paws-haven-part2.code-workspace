@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../paws-haven-part2"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "paws-haven 2"
+	}
+}
