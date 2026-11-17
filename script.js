@@ -12,6 +12,8 @@ const noResults = document.querySelector("#no-results");
 
 
 function filterPets(searchText) {
+    console.log("filterPets was called with:", searchText);
+
     const search = searchText.trim().toLowerCase();
     let shown = 0;
   
@@ -44,6 +46,9 @@ function filterPets(searchText) {
 
 
   const taskList = document.querySelector("#task-list");
+  const taskForm = document.querySelector("#checklist-form");
+  const taskNameInput = document.querySelector("#task-name");
+  const formMessage = document.querySelector("#form-message");
 
   function addTaskToPage(taskText) {
     const item = document.createElement("li");
@@ -86,4 +91,18 @@ taskForm.addEventListener("submit", (event) => {
     addTaskToPage(taskName);
     taskNameInput.value = "";
     taskNameInput.focus();
+  });
+
+  taskForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const taskName = taskNameInput.value;
+  
+    if (taskName === "") {
+      formMessage.textContent = "Please type a job first.";
+      return;
+    }
+  
+    formMessage.textContent = "";
+    addTaskToPage(taskName);
+    taskNameInput.value = "";
   });
