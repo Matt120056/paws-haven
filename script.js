@@ -5,6 +5,8 @@ const petItems = document.querySelectorAll(".pet-list li");
 const petCount = document.querySelector("#pet-count");
 const searchInput = document.querySelector("#pet-search");
 const searchForm = document.querySelector("#pets form");
+const noResults = document.querySelector("#no-results");
+
 
 
 
@@ -24,6 +26,11 @@ function filterPets(searchText) {
     }
   
     petCount.textContent = "Showing " + shown + " of " + petItems.length + " pets";
+    if (shown === 0) {
+        noResults.classList.remove("hidden");
+      } else {
+        noResults.classList.add("hidden");
+      }
   }
 
   searchInput.addEventListener("input", () => {
