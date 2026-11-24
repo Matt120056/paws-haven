@@ -1,3 +1,4 @@
+
 // script.js - Northern Paws Rescue
 // Class Activity 5
 
@@ -7,65 +8,68 @@ const searchInput = document.querySelector("#pet-search");
 const searchForm = document.querySelector("#pets form");
 const noResults = document.querySelector("#no-results");
 
-
-
-
-
 function filterPets(searchText) {
-    console.log("filterPets was called with:", searchText);
+  console.log("filterPets was called with:", searchText);
 
-    const search = searchText.trim().toLowerCase();
-    let shown = 0;
-  
-    for (const item of petItems) {
-      const name = item.querySelector("h3").textContent.toLowerCase();
-      if (name.includes(search)) {
-        item.classList.remove("hidden");
-        shown = shown + 1;
-      } else {
-        item.classList.add("hidden");
-      }
+  const search = searchText.trim().toLowerCase();
+  let shown = 0;
+
+  for (const item of petItems) {
+    const name = item.querySelector("h3").textContent.toLowerCase();
+
+    if (name.includes(search)) {
+      item.classList.remove("hidden");
+      shown = shown + 1;
+    } else {
+      item.classList.add("hidden");
     }
-  
-    petCount.textContent = "Showing " + shown + " of " + petItems.length + " pets";
-    if (shown === 0) {
-        noResults.classList.remove("hidden");
-      } else {
-        noResults.classList.add("hidden");
-      }
   }
 
-  searchInput.addEventListener("input", () => {
-    filterPets(searchInput.value);
-  });
-  searchForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-  
-  filterPets("");
+  petCount.textContent = "Showing " + shown + " of " + petItems.length + " pets";
 
-
-  const taskList = document.querySelector("#task-list");
-  const taskForm = document.querySelector("#checklist-form");
-  const taskNameInput = document.querySelector("#task-name");
-  const formMessage = document.querySelector("#form-message");
-
-  function addTaskToPage(taskText) {
-    const item = document.createElement("li");
-    const label = document.createElement("label");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    const text = document.createElement("span");
-    text.textContent = taskText;
-    checkbox.addEventListener("change", () => {
-        item.classList.toggle("done");
-      });
-  
-    label.appendChild(checkbox);
-    label.appendChild(text);
-    item.appendChild(label);
-    taskList.appendChild(item);
+  if (shown === 0) {
+    noResults.classList.remove("hidden");
+  } else {
+    noResults.classList.add("hidden");
   }
+}
+
+searchInput.addEventListener("input", () => {
+  filterPets(searchInput.value);
+});
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+
+filterPets("");
+
+// Volunteer checklist
+
+const taskList = document.querySelector("#task-list");
+const taskForm = document.querySelector("#checklist-form");
+const taskNameInput = document.querySelector("#task-name");
+const formMessage = document.querySelector("#form-message");
+
+function addTaskToPage(taskText) {
+  const item = document.createElement("li");
+  const label = document.createElement("label");
+  const checkbox = document.createElement("input");
+
+  checkbox.type = "checkbox";
+
+  const text = document.createElement("span");
+  text.textContent = taskText;
+
+  checkbox.addEventListener("change", () => {
+    item.classList.toggle("done");
+  });
+
+  label.appendChild(checkbox);
+  label.appendChild(text);
+  item.appendChild(label);
+  taskList.appendChild(item);
+}
 
 const startingTasks = [
   "Set up the folding tables",
@@ -79,30 +83,17 @@ for (const task of startingTasks) {
 }
 
 taskForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const taskName = taskNameInput.value.trim();
-  
-    if (taskName === "") {
-      formMessage.textContent = "Please type a job first.";
-      return;
-    }
-  
-    formMessage.textContent = "";
-    addTaskToPage(taskName);
-    taskNameInput.value = "";
-    taskNameInput.focus();
-  });
+  event.preventDefault();
 
-  taskForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const taskName = taskNameInput.value;
-  
-    if (taskName === "") {
-      formMessage.textContent = "Please type a job first.";
-      return;
-    }
-  
-    formMessage.textContent = "";
-    addTaskToPage(taskName);
-    taskNameInput.value = "";
-  });
+  const taskName = taskNameInput.value.trim();
+
+  if (taskName === "") {
+    formMessage.textContent = "Please type a job first.";
+    return;
+  }
+
+  formMessage.textContent = "";
+  addTaskToPage(taskName);
+  taskNameInput.value = "";
+  taskNameInput.focus();
+});
